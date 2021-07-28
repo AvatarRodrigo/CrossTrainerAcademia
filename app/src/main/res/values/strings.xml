@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">Cross Trainer</string>
+    <string name="trainer">Trainer Academia</string>
+    <string name="txt_intro1">Um aplicativo exclusivo para alunos da Trainer Academia</string>
+    <string name="txt_intro2">Faça exercícios melhorando a saúde e o condicionamento físico</string>
+    <string name="txt_intro3">Desafie-se com os circuitos e receba medalhas pelas suas conquistas!</string>
+    <string name="txt_intro4">O seu maior projeto deve ser você!</string>
+    <string name="txt_intro4_title">Evolução pessoal</string>
+    <string name="quero_ser">Quero ser aluno</string>
+    <string name="cadastrar_cross">Cadastrar no Cross Trainer</string>
+    <string name="tenho_conta">Já tenho conta</string>
+    <string name="para_aluno">Cadastro exclusivo para alunos Trainer</string>
+    <string name="acessar">Acessar</string>
+    <string name="nome">Nome</string>
+    <string name="mail">E-mail</string>
+    <string name="cel">Celular</string>
+    <string name="senha">Senha</string>
+    <string name="senha2">Confirmar Senha</string>
+    <string name="cadastrar">Cadastrar</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
 </resources>
