@@ -11,6 +11,6 @@ public class CadastroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.intro_login);
+        setContentView(R.layout.activity_cadastro);
     }
 }
