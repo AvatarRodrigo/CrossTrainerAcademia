@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="120dp"
+        android:layout_width="235dp"
+        android:layout_height="106dp"
         android:contentDescription="@string/trainer"
         app:srcCompat="@drawable/intro_um" />
 
