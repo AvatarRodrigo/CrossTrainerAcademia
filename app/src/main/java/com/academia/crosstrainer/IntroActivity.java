@@ -7,9 +7,13 @@ import android.view.View;
 
 import com.academia.crosstrainer.activity.CadastroActivity;
 import com.academia.crosstrainer.activity.LoginActivity;
+import com.academia.crosstrainer.config.ConfiguracaoFirebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 
 public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.IntroActivity {
+
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,13 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
         );
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        checkLoggedUser();
+    }
+
     public void btnEnter(View view){
         startActivity(new Intent(this, LoginActivity.class));
     }
@@ -67,8 +78,21 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
     public void btnRegister(View view){
         startActivity(new Intent(this, CadastroActivity.class));
     }
+
     public void btnWant(View view){
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://acadtrainer.com.br")));
     }
 
+    public void checkLoggedUser(){
+        auth = ConfiguracaoFirebase.FirebaseAutenticacao();
+        auth.signOut();
+        if(auth.getCurrentUser() != null){
+            openScreenMain();
+        }
+    }
+
+    public void openScreenMain(){
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
 }

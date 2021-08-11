@@ -8,7 +8,7 @@
     tools:context=".activity.LoginActivity">
 
     <Button
-        android:id="@+id/btnCadastrar"
+        android:id="@+id/btnAcessar"
         android:layout_width="214dp"
         android:layout_height="0dp"
         android:layout_marginBottom="287dp"
@@ -35,7 +35,7 @@
         android:textColorHighlight="@color/design_default_color_secondary"
         android:textColorHint="@color/design_default_color_secondary"
         android:textColorLink="@color/design_default_color_secondary"
-        app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
+        app:layout_constraintBottom_toTopOf="@+id/btnAcessar"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
