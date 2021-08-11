@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "760455867113",
+    "project_id": "cross-trainer-b854f",
+    "storage_bucket": "cross-trainer-b854f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760455867113:android:568551cf9448a209505e78",
+        "android_client_info": {
+          "package_name": "com.academia.crosstrainer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760455867113-03omr38l0e5qd1966qfd3f899jm0vj8u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.academia.crosstrainer",
+            "certificate_hash": "f7c4e0657559fc9121bb5cc9d2b5860a63ce320e"
+          }
+        },
+        {
+          "client_id": "760455867113-bs7dk4av76duv6q1g5qi0knoqh0k95ft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCZZzzq3SJ26mXeF7r-XSMVAB4w1A00mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760455867113-bs7dk4av76duv6q1g5qi0knoqh0k95ft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
