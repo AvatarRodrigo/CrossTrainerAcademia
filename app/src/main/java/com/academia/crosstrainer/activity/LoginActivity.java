@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.academia.crosstrainer.MainActivity;
+import com.academia.crosstrainer.ActionActivity;
 import com.academia.crosstrainer.R;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.model.Usuario;
@@ -20,8 +20,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -91,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     public void openScreenMain(){
-         startActivity(new Intent(this, MainActivity.class));
+         startActivity(new Intent(this, ActionActivity.class));
         finish();
     }
 }

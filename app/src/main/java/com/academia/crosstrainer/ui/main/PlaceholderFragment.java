@@ -1,6 +1,7 @@
 package com.academia.crosstrainer.ui.main;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.academia.crosstrainer.databinding.FragmentMainBinding;
+import com.academia.crosstrainer.R;
+import com.academia.crosstrainer.databinding.FragmentActionBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -19,9 +22,50 @@ import com.academia.crosstrainer.databinding.FragmentMainBinding;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
     private PageViewModel pageViewModel;
-    private FragmentMainBinding binding;
+    private FragmentActionBinding binding;
+    private static TextView section_label;
+    private static long initialTime;
+    private static Handler handler;
+    private static boolean isRunning;
+    private static final long MILLIS_IN_SEC = 1000L;
+    private static final int SECS_IN_MIN = 60;
+
+    private final static Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (isRunning) {
+                long seconds = (System.currentTimeMillis() - initialTime) / MILLIS_IN_SEC;
+                section_label.setText(String.format("%02d:%02d", seconds / SECS_IN_MIN, seconds % SECS_IN_MIN));
+                handler.postDelayed(runnable, MILLIS_IN_SEC);
+            }
+        }
+    };
+
+    private static void setupStopwatch(View rootView){
+        section_label = (TextView)rootView.findViewById(R.id.section_label);
+
+        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FloatingActionButton fab = (FloatingActionButton)view;
+                if(!isRunning) {
+                    isRunning = true;
+                    initialTime = System.currentTimeMillis();
+                    fab.setImageResource(android.R.drawable.ic_media_pause);
+                    handler.postDelayed(runnable, MILLIS_IN_SEC);
+                }else{
+                    isRunning = false;
+                    fab.setImageResource(android.R.drawable.ic_media_play);
+                    handler.removeCallbacks(runnable);
+                    section_label.setText("00:00");
+                }
+            }
+        });
+
+        handler = new Handler();
+    }
 
     public static PlaceholderFragment newInstance(int index) {
         PlaceholderFragment fragment = new PlaceholderFragment();
@@ -44,21 +88,16 @@ public class PlaceholderFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final int VIEW_CRONOMETRO = 1;
+        boolean isViewNew = getArguments().getInt(ARG_SECTION_NUMBER) == VIEW_CRONOMETRO;
+        int layoutId = isViewNew ? R.layout.fragment_action : R.layout.fragment_action_history;
+        View rootView = inflater.inflate(layoutId, container, false);
 
-        binding = FragmentMainBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        if(isViewNew)
+            setupStopwatch(rootView);
 
-        final TextView textView = binding.sectionLabel;
-        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+        return rootView;
     }
 
     @Override

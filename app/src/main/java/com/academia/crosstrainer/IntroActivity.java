@@ -85,14 +85,14 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
 
     public void checkLoggedUser(){
         auth = ConfiguracaoFirebase.FirebaseAutenticacao();
-        auth.signOut();
+        //auth.signOut();
         if(auth.getCurrentUser() != null){
             openScreenMain();
         }
     }
 
     public void openScreenMain(){
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, ActionActivity.class));
         finish();
     }
 }

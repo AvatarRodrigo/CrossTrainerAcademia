@@ -34,7 +34,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        switch (position) {
+            case 0:
+                return "TREINAR";
+            case 1:
+                return "RESULTADOS";
+        }
+        return null;
     }
 
     @Override
