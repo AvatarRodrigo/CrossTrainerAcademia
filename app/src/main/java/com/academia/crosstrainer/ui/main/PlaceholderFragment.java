@@ -11,10 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.academia.crosstrainer.R;
 import com.academia.crosstrainer.databinding.FragmentActionBinding;
+import com.academia.crosstrainer.model.ActionHistory;
+import com.academia.crosstrainer.model.ActionHistoryAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -30,6 +38,7 @@ public class PlaceholderFragment extends Fragment {
     private static boolean isRunning;
     private static final long MILLIS_IN_SEC = 1000L;
     private static final int SECS_IN_MIN = 60;
+    private static ActionHistoryAdapter adapter;
 
     private final static Runnable runnable = new Runnable() {
         @Override
@@ -59,6 +68,10 @@ public class PlaceholderFragment extends Fragment {
                     isRunning = false;
                     fab.setImageResource(android.R.drawable.ic_media_play);
                     handler.removeCallbacks(runnable);
+
+                    //atualiza a recyclerView
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+                    adapter.addHistory(new ActionHistory(section_label.getText().toString(), sdf.format(new Date())));
                     section_label.setText("00:00");
                 }
             }
@@ -96,6 +109,8 @@ public class PlaceholderFragment extends Fragment {
 
         if(isViewNew)
             setupStopwatch(rootView);
+        else
+            setupHistory(rootView);
 
         return rootView;
     }
@@ -104,5 +119,13 @@ public class PlaceholderFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void setupHistory(View rootView) {
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.history);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(rootView.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new ActionHistoryAdapter(new ArrayList<ActionHistory>());
+        recyclerView.setAdapter(adapter);
     }
 }
