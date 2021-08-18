@@ -80,12 +80,12 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
     }
 
     public void btnWant(View view){
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://acadtrainer.com.br")));
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://acadtrainer.com.br")));
     }
 
     public void checkLoggedUser(){
         auth = ConfiguracaoFirebase.FirebaseAutenticacao();
-        //auth.signOut();
+       // auth.signOut();
         if(auth.getCurrentUser() != null){
             openScreenMain();
         }

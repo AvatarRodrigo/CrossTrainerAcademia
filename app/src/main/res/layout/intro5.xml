@@ -8,8 +8,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="214dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:background="@color/logo_escuro"
         android:onClick="btnRegister"
@@ -23,8 +25,10 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="214dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="51dp"
         android:background="@color/logo_escuro"
         android:onClick="btnWant"

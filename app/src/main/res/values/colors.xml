@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="logo_escuro">#1C4E7E</color>
+    <color name="logo_escuro_i">#2F7ABB</color>
+    <color name="logo_claro">#3A9FD4</color>
+    <color name="logo_claro_i">#9FCBE0</color>
 </resources>

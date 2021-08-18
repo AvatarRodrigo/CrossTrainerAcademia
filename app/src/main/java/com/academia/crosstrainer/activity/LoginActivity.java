@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.academia.crosstrainer.ActionActivity;
 import com.academia.crosstrainer.R;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
-import com.academia.crosstrainer.model.Usuario;
+import com.academia.crosstrainer.model.UserApp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText campoEmail, campoSenha;
     private Button btnEnter;
-    private Usuario usuario;
+    private UserApp userApp;
     private FirebaseAuth autenticacao;
 
     @Override
@@ -50,9 +50,9 @@ public class LoginActivity extends AppCompatActivity {
                             "Preencha a senha!",
                             Toast.LENGTH_SHORT).show();
                 }else{
-                    usuario = new Usuario();
-                    usuario.setEmail(email);
-                    usuario.setSenha(password);
+                    userApp = new UserApp();
+                    userApp.setEmail(email);
+                    userApp.setSenha(password);
                     validateLogin();
                 }
             }
@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
     public void validateLogin(){
         autenticacao = ConfiguracaoFirebase.FirebaseAutenticacao();
         autenticacao.signInWithEmailAndPassword(
-                usuario.getEmail(),
-                usuario.getSenha()
+                userApp.getEmail(),
+                userApp.getSenha()
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 import com.academia.crosstrainer.R;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
-import com.academia.crosstrainer.model.Usuario;
+import com.academia.crosstrainer.helper.Base64Custom;
+import com.academia.crosstrainer.model.UserApp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,10 +23,10 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class CadastroActivity extends AppCompatActivity {
 
-    private EditText campoNome, campoEmail,  campoPassword, campoPassword2;
+    private EditText campoNome, campoEmail, campoPhone, campoPassword, campoPassword2;
     private Button botaoCadastrar;
     private FirebaseAuth autenticacao;
-    private Usuario usuario;
+    private UserApp userApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         campoNome = findViewById(R.id.txtName);
         campoEmail = findViewById(R.id.txtMail);
+        campoPhone = findViewById(R.id.txtPhone);
         campoPassword  = findViewById(R.id.txtSenha);
         campoPassword2 = findViewById(R.id.txtSenha2);
         botaoCadastrar = findViewById(R.id.btnCadastrar);
@@ -43,6 +45,7 @@ public class CadastroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = campoNome.getText().toString();
                 String email = campoEmail.getText().toString();
+                String phone = campoPhone.getText().toString();
                 String password = campoPassword.getText().toString();
                 String password2 = campoPassword2.getText().toString();
 
@@ -55,6 +58,10 @@ public class CadastroActivity extends AppCompatActivity {
                     Toast.makeText(CadastroActivity.this,
                             "Preencha o e-mail!",
                             Toast.LENGTH_SHORT).show();
+                }else if(phone.isEmpty()){
+                    Toast.makeText(CadastroActivity.this,
+                            "Preencha o número do celular!",
+                            Toast.LENGTH_SHORT).show();
                 }else if(password.isEmpty()){
                     Toast.makeText(CadastroActivity.this,
                             "Preencha a senha!",
@@ -64,25 +71,29 @@ public class CadastroActivity extends AppCompatActivity {
                             "As senhas não conferem!",
                             Toast.LENGTH_SHORT).show();
                 }else{
-                    usuario = new Usuario();
-                    usuario.setNome(name);
-                    usuario.setEmail(email);
-                    usuario.setSenha(password);
-                    cadastrarUsuario();
+                    userApp = new UserApp();
+                    userApp.setNome(name);
+                    userApp.setEmail(email);
+                    userApp.setCelular(phone);
+                    userApp.setSenha(password);
+                    cadastrarUser();
                 }
 
             }
         });
 
     }
-    public void cadastrarUsuario(){
+    public void cadastrarUser(){
         autenticacao = ConfiguracaoFirebase.FirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
-                usuario.getEmail(),usuario.getSenha()
+                userApp.getEmail(), userApp.getSenha()
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    String idUser = Base64Custom.codeBase64(userApp.getEmail());
+                    userApp.setIdUser(idUser);
+                    userApp.save();
                    finish();
                 }else{
                     String ex = "";

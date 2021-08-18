@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.CrossTrainer" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
+        <item name="colorPrimary">@color/logo_escuro</item>
+        <item name="colorPrimaryDark">@color/logo_escuro_i</item>
+        <item name="colorAccent">@color/logo_claro_i</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
