@@ -92,7 +92,7 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
     }
 
     public void openScreenMain(){
-        startActivity(new Intent(this, ActionActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 }
