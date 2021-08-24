@@ -1,4 +1,4 @@
-package com.academia.crosstrainer.ui.notifications;
+package com.academia.crosstrainer.ui.pageConquistas;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,24 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.academia.crosstrainer.R;
-import com.academia.crosstrainer.databinding.FragmentNotificationsBinding;
+import com.academia.crosstrainer.databinding.FragmentPageConquistasBinding;
 
-public class NotificationsFragment extends Fragment {
+public class PageConquistasFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private PageConquistasViewModel pageConquistasViewModel;
+    private FragmentPageConquistasBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        pageConquistasViewModel =
+                new ViewModelProvider(this).get(PageConquistasViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentPageConquistasBinding.inflate(inflater, container, false);
+
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        pageConquistasViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

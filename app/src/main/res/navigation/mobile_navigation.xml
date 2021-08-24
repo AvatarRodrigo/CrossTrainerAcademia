@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_atividades">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.academia.crosstrainer.ui.home.HomeFragment"
+        android:id="@+id/navigation_atividades"
+        android:name="com.academia.crosstrainer.ui.pageConquistas.PageConquistasFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_page_atividades" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.academia.crosstrainer.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_relatorios"
+        android:name="com.academia.crosstrainer.ui.pageAtividades.PageAtividadesFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_page_relatorios" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.academia.crosstrainer.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_conquistas"
+        android:name="com.academia.crosstrainer.ui.pageRelatorios.PageRelatoriosFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_page_conquistas" />
 </navigation>

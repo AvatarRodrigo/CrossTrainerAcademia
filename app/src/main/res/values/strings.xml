@@ -20,6 +20,12 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="termos">Termos de uso</string>
+    <string name="page_desafiante">Desafiante</string>
+    <string name="page_atividades">Atividades</string>
+    <string name="page_conquistas">Conquistas</string>
+    <string name="page_relatorios">Relatórios</string>
+    <string name="page_ranking">Ranking</string>
+    <string name="page_desafios">Desafios</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

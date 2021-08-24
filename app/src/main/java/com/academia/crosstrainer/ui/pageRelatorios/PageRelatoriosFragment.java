@@ -1,4 +1,4 @@
-package com.academia.crosstrainer.ui.dashboard;
+package com.academia.crosstrainer.ui.pageRelatorios;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.academia.crosstrainer.R;
-import com.academia.crosstrainer.databinding.FragmentDashboardBinding;
+import com.academia.crosstrainer.databinding.FragmentPageRelatoriosBinding;
 
-public class DashboardFragment extends Fragment {
+public class PageRelatoriosFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
-    private FragmentDashboardBinding binding;
+    private PageRelatoriosViewModel pageRelatoriosViewModel;
+    private FragmentPageRelatoriosBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        pageRelatoriosViewModel =
+                new ViewModelProvider(this).get(PageRelatoriosViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentPageRelatoriosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        pageRelatoriosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
