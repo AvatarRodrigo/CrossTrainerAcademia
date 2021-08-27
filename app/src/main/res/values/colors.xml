@@ -11,4 +11,6 @@
     <color name="logo_escuro_i">#2F7ABB</color>
     <color name="logo_claro">#3A9FD4</color>
     <color name="logo_claro_i">#9FCBE0</color>
+    <color name="shadow">#19050000</color>
+    <color name="sombra">#0D000000</color>
 </resources>

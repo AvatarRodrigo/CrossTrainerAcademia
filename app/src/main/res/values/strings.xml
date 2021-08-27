@@ -30,4 +30,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="txt_desafiante">Acredite, vale a pena lutar para ser melhor.</string>
+    <string name="txt_ranking1">Desafia-se e veja sua colocação dentro dos circuitos.</string>
+    <string name="txt_ranking2">Participe da primeira Arena Cross trainer!</string>
+    <string name="txt_desafio1">Escolha seu desafio.</string>
+    <string name="txt_desafio2">O primeiro passo da vitória é começar!</string>
 </resources>

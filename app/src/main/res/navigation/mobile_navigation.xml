@@ -7,19 +7,29 @@
 
     <fragment
         android:id="@+id/navigation_atividades"
-        android:name="com.academia.crosstrainer.ui.pageConquistas.PageConquistasFragment"
-        android:label="@string/title_home"
+        android:name="com.academia.crosstrainer.ui.pageAtividades.PageAtividadesFragment"
+                android:label="@string/page_atividades"
         tools:layout="@layout/fragment_page_atividades" />
 
     <fragment
         android:id="@+id/navigation_relatorios"
-        android:name="com.academia.crosstrainer.ui.pageAtividades.PageAtividadesFragment"
-        android:label="@string/title_dashboard"
+        android:name="com.academia.crosstrainer.ui.pageRelatorios.PageRelatoriosFragment"
+                android:label="@string/page_relatorios"
         tools:layout="@layout/fragment_page_relatorios" />
 
     <fragment
+        android:id="@+id/navigation_desafios"
+        android:name="com.academia.crosstrainer.ui.pageDesafios.PageDesafiosFragment"
+        android:label="@string/page_desafios"
+        tools:layout="@layout/fragment_page_desafioss"/>
+    <fragment
         android:id="@+id/navigation_conquistas"
-        android:name="com.academia.crosstrainer.ui.pageRelatorios.PageRelatoriosFragment"
-        android:label="@string/title_notifications"
+        android:name="com.academia.crosstrainer.ui.pageConquistas.PageConquistasFragment"
+        android:label="@string/page_conquistas"
         tools:layout="@layout/fragment_page_conquistas" />
+    <fragment
+        android:id="@+id/navigation_ranking"
+        android:name="com.academia.crosstrainer.ui.pageRanking.PageRankingFragment"
+        android:label="@string/page_ranking"
+        tools:layout="@layout/fragment_page_ranking"/>
 </navigation>
