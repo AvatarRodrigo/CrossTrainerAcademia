@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/navigation_atividades"
-        android:icon="@drawable/ic_clock_24"
+        android:icon="@drawable/ic_person_24"
         android:title="@string/page_atividades" />
 
     <item

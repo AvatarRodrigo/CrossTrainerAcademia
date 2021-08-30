@@ -9,4 +9,9 @@ public class DateUtil {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
         return  simpleDateFormat.format(date);
     }
+
+    public static String getMonthYear(String date){
+        String ret[] = date.split("/");
+        return ret[2]+ret[1];
+    }
 }

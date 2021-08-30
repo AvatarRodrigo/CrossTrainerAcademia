@@ -16,4 +16,5 @@ public class ActionHistoryHolder extends RecyclerView.ViewHolder {
         tempo = (TextView) itemView.findViewById(R.id.tempo);
         data = (TextView) itemView.findViewById(R.id.data);
     }
+
 }
