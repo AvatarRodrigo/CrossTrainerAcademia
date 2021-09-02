@@ -4,35 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_marmore"
     tools:context=".ActionActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/nada"
         android:theme="@style/Theme.CrossTrainer.AppBarOverlay">
 
         <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:minHeight="?actionBarSize"
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbCircuito"
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="     Circuito"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/cbxCircuito"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:transitionGroup="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbIntensidade"
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="     Intensidade"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/cbxIntensidade"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:transitionGroup="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbPeso"
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="     Peso"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/cbxPeso"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lbIntervalo"
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="     Intervalo"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/cbxIntervalo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"/>
+
+        </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary" />
+            app:tabIndicatorColor="@color/rocha" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -28,9 +30,8 @@ import org.jetbrains.annotations.NotNull;
 public class TrainingActivity extends AppCompatActivity {
 
     private MaterialCalendarView calendarView;
-    private TextView txtWelcome;
+   // private TextView txtWelcome;
     private FirebaseAuth auth = ConfiguracaoFirebase.FirebaseAutenticacao();
-
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFireBaseDatabase();
 
     @Override
@@ -41,12 +42,11 @@ public class TrainingActivity extends AppCompatActivity {
         //Alterar barra superior
         getSupportActionBar().setTitle("");
         getSupportActionBar().setElevation(0);
-        //Variaveis
-        txtWelcome = findViewById(R.id.txtWelcome);
+        //Variáveis
+       // txtWelcome = findViewById(R.id.txtWelcome);
         calendarView = findViewById(R.id.calendarView);
         configCalendarView();
         recoverData();
-
     }
 
     private void configCalendarView(){
@@ -93,7 +93,8 @@ public class TrainingActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 UserApp  userApp =  snapshot.getValue(UserApp.class);
-                txtWelcome.setText("Olá " + userApp.getNome());
+               // txtWelcome.setText("Olá " + userApp.getNome());
+                getSupportActionBar().setTitle("Olá " + userApp.getNome());
             }
 
             @Override
@@ -102,4 +103,18 @@ public class TrainingActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void openScreenGladiadores(View view){
+                Intent intent = new Intent(TrainingActivity.this,ActionActivity.class);
+                intent.putExtra("key","Gladiadores");
+                startActivity(intent);
+                finish();
+    }
+    public void openScreenDeusesGregos(View view){
+        Intent intent = new Intent(TrainingActivity.this,ActionActivity.class);
+        intent.putExtra("key","Deuses Gregos");
+        startActivity(intent);
+        finish();
+    }
+
 }
