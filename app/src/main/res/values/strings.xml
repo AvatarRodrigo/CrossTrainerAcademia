@@ -26,6 +26,7 @@
     <string name="page_relatorios">Relatórios</string>
     <string name="page_ranking">Ranking</string>
     <string name="page_desafios">Desafios</string>
+    <string name="finalizar">Finalizar treino</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

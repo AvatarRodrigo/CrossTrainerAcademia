@@ -4,8 +4,6 @@ import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.helper.Base64Custom;
 import com.google.firebase.database.DatabaseReference;
 
-import static com.academia.crosstrainer.helper.DateUtil.getMonthYear;
-
 public class Train {
     private String circuit;
     private String date;
@@ -49,7 +47,6 @@ public class Train {
 
     public void salvar(String mail, String month){
         String idUser = Base64Custom.codeBase64(mail);
-        month = getMonthYear(month);
         DatabaseReference firebase = ConfiguracaoFirebase.getFireBaseDatabase();
         firebase.child("train")
                 .child(idUser)

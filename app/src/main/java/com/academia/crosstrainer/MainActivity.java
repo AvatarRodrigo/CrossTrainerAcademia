@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnAction(View view){
-        startActivity(new Intent(this, ActionActivity.class));
+        startActivity(new Intent(this, TrainingActivity.class));
     }
 
 }
