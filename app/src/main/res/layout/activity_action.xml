@@ -35,7 +35,7 @@
                 android:layout_width="162dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="     Circuito"
+                android:text="        Circuito"
                 android:textAlignment="viewStart"
                 android:textSize="20sp" />
 
@@ -57,7 +57,7 @@
                 android:layout_width="162dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="     Intensidade"
+                android:text="        Intensidade"
                 android:textAlignment="viewStart"
                 android:textSize="20sp" />
 
@@ -79,7 +79,7 @@
                 android:layout_width="162dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="     Peso"
+                android:text="        Peso"
                 android:textAlignment="viewStart"
                 android:textSize="20sp" />
 
@@ -101,7 +101,7 @@
                 android:layout_width="162dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="     Intervalo"
+                android:text="        Intervalo"
                 android:textAlignment="viewStart"
                 android:textSize="20sp" />
 

@@ -7,8 +7,10 @@ import com.google.firebase.database.DatabaseReference;
 public class Train {
     private String circuit;
     private String date;
-    private String level;
     private String time;
+    private String interval;
+    private String energy;
+    private String weight;
 
     public Train() {
     }
@@ -29,20 +31,36 @@ public class Train {
         this.date = date;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
     public String getTime() {
         return time;
     }
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getInterval() {
+        return interval;
+    }
+
+    public void setInterval(String interval) {
+        this.interval = interval;
+    }
+
+    public String getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(String energy) {
+        this.energy = energy;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
     public void salvar(String mail, String month){
