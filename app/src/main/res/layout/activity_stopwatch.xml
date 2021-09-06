@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_marmore"
+    android:orientation="vertical"
+    tools:context=".activity.StopwatchActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbCircuito"
+            android:layout_width="173dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="        Circuito"
+            android:textAlignment="viewStart"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/cbxCircuito"
+            android:layout_width="208dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:transitionGroup="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbIntervalo"
+            android:layout_width="173dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="        Intervalo"
+            android:textAlignment="viewStart"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/cbxIntervalo"
+            android:layout_width="208dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbIntensidade"
+            android:layout_width="173dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="        Energia"
+            android:textAlignment="viewStart"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/cbxIntensidade"
+            android:layout_width="208dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:transitionGroup="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lbPeso"
+            android:layout_width="173dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="0dp"
+            android:text="        Peso"
+            android:textAlignment="viewStart"
+            android:textColor="@color/teal_200"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/cbxPeso"
+            android:layout_width="208dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="00:00.000"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="50dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/start" />
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/finish" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/cancel" />
+    </LinearLayout>
+
+
+</LinearLayout>

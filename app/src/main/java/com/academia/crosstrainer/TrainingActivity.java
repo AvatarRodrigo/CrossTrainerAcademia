@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.academia.crosstrainer.activity.StopwatchActivity;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.helper.Base64Custom;
 import com.academia.crosstrainer.model.UserApp;
@@ -105,13 +106,13 @@ public class TrainingActivity extends AppCompatActivity {
     }
 
     public void openScreenGladiadores(View view){
-                Intent intent = new Intent(TrainingActivity.this,ActionActivity.class);
+                Intent intent = new Intent(TrainingActivity.this, StopwatchActivity.class);
                 intent.putExtra("key","Gladiadores");
                 startActivity(intent);
                 finish();
     }
     public void openScreenDeusesGregos(View view){
-        Intent intent = new Intent(TrainingActivity.this,ActionActivity.class);
+        Intent intent = new Intent(TrainingActivity.this,StopwatchActivity.class);
         intent.putExtra("key","Deuses Gregos");
         startActivity(intent);
         finish();

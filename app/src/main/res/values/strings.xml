@@ -58,7 +58,8 @@
         <item>Invictus</item>
         <item>Spartacus</item>
     </string-array>
+    <string name="start">Iniciar</string>
+    <string name="finish">Finalizar</string>
+    <string name="cancel">Cancelar</string>
 
-
-    
 </resources>
