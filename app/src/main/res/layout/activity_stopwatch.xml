@@ -20,12 +20,12 @@
             android:layout_marginBottom="10dp"
             android:text="        Circuito"
             android:textAlignment="viewStart"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/logo_claro"
             android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/cbxCircuito"
-            android:layout_width="208dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="10dp"
             android:transitionGroup="false" />
@@ -44,12 +44,12 @@
             android:layout_marginBottom="10dp"
             android:text="        Intervalo"
             android:textAlignment="viewStart"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/logo_claro"
             android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/cbxIntervalo"
-            android:layout_width="208dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="10dp" />
 
@@ -67,12 +67,12 @@
             android:layout_marginBottom="10dp"
             android:text="        Energia"
             android:textAlignment="viewStart"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/logo_claro"
             android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/cbxIntensidade"
-            android:layout_width="208dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="10dp"
             android:transitionGroup="false" />
@@ -91,14 +91,132 @@
             android:layout_marginBottom="0dp"
             android:text="        Peso"
             android:textAlignment="viewStart"
-            android:textColor="@color/teal_200"
+            android:textColor="@color/logo_claro"
             android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/cbxPeso"
-            android:layout_width="208dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lbName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbExercise9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -118,12 +236,6 @@
             android:textSize="50dp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
