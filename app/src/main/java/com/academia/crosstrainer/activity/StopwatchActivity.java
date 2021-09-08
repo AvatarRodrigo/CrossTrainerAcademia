@@ -67,11 +67,6 @@ public class StopwatchActivity extends AppCompatActivity {
             }
         });
 
-        String itemIntervalos = intervalos.getSelectedItem().toString();
-        String itemIntencidades = intencidades.getSelectedItem().toString();
-        String itemPesos = pesos.getSelectedItem().toString();
-        String itemCircuitos = circuitos.getSelectedItem().toString();
-
         btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +75,7 @@ public class StopwatchActivity extends AppCompatActivity {
                     chronometer = null;
                     threadChrono.interrupt();
                     threadChrono = null;
+                    openScreenSave();
                 }
             }
         });
@@ -87,6 +83,12 @@ public class StopwatchActivity extends AppCompatActivity {
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (chronometer != null){
+                    chronometer.stop();
+                    chronometer = null;
+                    threadChrono.interrupt();
+                    threadChrono = null;
+                }
                 openTraining();
             }
         });
@@ -104,6 +106,21 @@ public class StopwatchActivity extends AppCompatActivity {
                txtTime.setText(time);
             }
         });
+    }
+
+    public void openScreenSave(){
+        Intent intent = new Intent(StopwatchActivity.this, TrainingSaveActivity.class);
+        String itemIntervalos = intervalos.getSelectedItem().toString();
+        String itemIntencidades = intencidades.getSelectedItem().toString();
+        String itemPesos = pesos.getSelectedItem().toString();
+        String itemCircuitos = circuitos.getSelectedItem().toString();
+        intent.putExtra("circuit",itemCircuitos);
+        intent.putExtra("interval",itemIntervalos);
+        intent.putExtra("energy",itemIntencidades);
+        intent.putExtra("weight",itemPesos);
+        intent.putExtra("time",txtTime.getText());
+        startActivity(intent);
+        finish();
     }
 
 }

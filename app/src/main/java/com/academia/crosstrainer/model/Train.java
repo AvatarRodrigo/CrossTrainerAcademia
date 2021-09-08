@@ -1,8 +1,14 @@
 package com.academia.crosstrainer.model;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+
+import com.academia.crosstrainer.R;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.helper.Base64Custom;
 import com.google.firebase.database.DatabaseReference;
+
+import androidx.appcompat.content.res.AppCompatResources;
 
 public class Train {
     private String circuit;
@@ -11,6 +17,7 @@ public class Train {
     private String interval;
     private String energy;
     private String weight;
+    private String medal;
 
     public Train() {
     }
@@ -32,7 +39,8 @@ public class Train {
     }
 
     public String getTime() {
-        return time;
+        String[] times = time.split(":");
+        return times[0] +"'"+times[1]+"\""+times[2];
     }
 
     public void setTime(String time) {
@@ -63,6 +71,25 @@ public class Train {
         this.weight = weight;
     }
 
+    public String getMedal() {
+        String[] times = time.split(":");
+        int min = Integer.parseInt(times[0]);
+        int seg = Integer.parseInt(times[1]);
+        int cent = Integer.parseInt(times[2]);
+        if(min < 2 || min == 2 && seg < 9){
+            medal = "Platina";
+        }else if(min == 2 && seg < 16){
+            medal = "Ouro";
+        }else if(min == 2 && seg < 26){
+            medal = "Prata";
+        }else if(min == 2 && seg < 51){
+            medal = "Bronze";
+        }else {
+            medal = "Shadow";
+        }
+        return medal;
+    }
+
     public void salvar(String mail, String month){
         String idUser = Base64Custom.codeBase64(mail);
         DatabaseReference firebase = ConfiguracaoFirebase.getFireBaseDatabase();
@@ -72,4 +99,5 @@ public class Train {
                 .push()
                 .setValue(this);
     }
+
 }

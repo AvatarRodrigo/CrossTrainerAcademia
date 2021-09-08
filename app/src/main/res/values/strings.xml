@@ -36,6 +36,11 @@
     <string name="txt_ranking2">Participe da primeira Arena Cross trainer!</string>
     <string name="txt_desafio1">Escolha seu desafio.</string>
     <string name="txt_desafio2">O primeiro passo da vitória é começar!</string>
+    <string name="start">Iniciar</string>
+    <string name="finish">Finalizar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Salvar</string>
+    <string name="carregando">carregando</string>
     <string-array name="intencidades">
         <item>100%</item>
         <item>80%</item>
@@ -58,8 +63,5 @@
         <item>Invictus</item>
         <item>Spartacus</item>
     </string-array>
-    <string name="start">Iniciar</string>
-    <string name="finish">Finalizar</string>
-    <string name="cancel">Cancelar</string>
 
 </resources>
