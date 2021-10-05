@@ -21,7 +21,7 @@ public class DateUtil {
     }
     public static String getMonthYear(String date){
         String ret[] = date.split("/");
-        return ret[2]+ret[1];
+        return ret[1]+ret[2];
     }
 
 }

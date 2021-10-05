@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 
 import com.academia.crosstrainer.R;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
-import com.academia.crosstrainer.helper.Base64Custom;
 import com.google.firebase.database.DatabaseReference;
 
 import androidx.appcompat.content.res.AppCompatResources;
@@ -90,11 +89,10 @@ public class Train {
         return medal;
     }
 
-    public void salvar(String mail, String month){
-        String idUser = Base64Custom.codeBase64(mail);
+    public void save(String mail, String month){
         DatabaseReference firebase = ConfiguracaoFirebase.getFireBaseDatabase();
         firebase.child("train")
-                .child(idUser)
+                .child(mail)
                 .child(month)
                 .push()
                 .setValue(this);

@@ -80,11 +80,6 @@ public class TrainingActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void openScreenMain(){
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-    }
-
     public void recoverData(){
         String mailUser = auth.getCurrentUser().getEmail();
         String idUser = Base64Custom.codeBase64(mailUser);
@@ -111,10 +106,16 @@ public class TrainingActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
     }
+
     public void openScreenDeusesGregos(View view){
         Intent intent = new Intent(TrainingActivity.this,StopwatchActivity.class);
         intent.putExtra("key","Deuses Gregos");
         startActivity(intent);
+        finish();
+    }
+
+    public void openScreenMain(){
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
