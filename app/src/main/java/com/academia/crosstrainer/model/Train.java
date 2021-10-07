@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseReference;
 import androidx.appcompat.content.res.AppCompatResources;
 
 public class Train {
+    private String key;
     private String circuit;
     private String date;
     private String time;
@@ -19,6 +20,14 @@ public class Train {
     private String medal;
 
     public Train() {
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getCircuit() {

@@ -1,16 +1,20 @@
 package com.academia.crosstrainer;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.academia.crosstrainer.activity.StopwatchActivity;
 import com.academia.crosstrainer.adapter.AdapterTrain;
@@ -30,6 +34,7 @@ import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TrainingActivity extends AppCompatActivity {
@@ -45,6 +50,7 @@ public class TrainingActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterTrain adapterTrain;
     private List<Train> trainList = new ArrayList<>();
+    private Train train;
     private DatabaseReference trainRef;
     private String MonthYearSelected;
 
@@ -62,6 +68,7 @@ public class TrainingActivity extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         recyclerView = findViewById(R.id.recyclerTraining);
         configCalendarView();
+        swipeTrain();
         //Configurar Adapter
         adapterTrain = new AdapterTrain(trainList, this);
         //Configurar RecyclerView
@@ -121,8 +128,10 @@ public class TrainingActivity extends AppCompatActivity {
 
                 for(DataSnapshot dados:snapshot.getChildren()){
                     Train train = dados.getValue(Train.class);
+                    train.setKey(dados.getKey());
                     trainList.add(train);
                 }
+                Collections.reverse(trainList);
                 adapterTrain.notifyDataSetChanged();
             }
 
@@ -131,6 +140,29 @@ public class TrainingActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void swipeTrain(){
+        ItemTouchHelper.Callback itemTouch = new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder) {
+                int dragsFlags = ItemTouchHelper.ACTION_STATE_IDLE;
+                int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+                return makeMovementFlags(dragsFlags, swipeFlags);
+            }
+
+            @Override
+            public boolean onMove(@NonNull @NotNull RecyclerView recyclerView, @NonNull @NotNull RecyclerView.ViewHolder viewHolder, @NonNull @NotNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull @NotNull RecyclerView.ViewHolder viewHolder, int direction) {
+                deleteTrain(viewHolder);
+            }
+        };
+
+        new ItemTouchHelper((itemTouch)).attachToRecyclerView(recyclerView);
     }
 
     public void recoverData(){
@@ -179,6 +211,50 @@ public class TrainingActivity extends AppCompatActivity {
         }else{
             return String.valueOf(month +""+ date.getYear());
         }
+    }
+
+    private void deleteTrain(RecyclerView.ViewHolder viewHolder){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Excluir Treino");
+        alertDialog.setMessage("Você tem certeza que deseja excluir o treino selecionado?");
+        alertDialog.setCancelable(false);
+
+        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Excluir treino
+                int position = viewHolder.getAdapterPosition();
+                train = trainList.get(position);
+
+                String mailUser = auth.getCurrentUser().getEmail();
+                String idUser = Base64Custom.codeBase64(mailUser);
+                trainRef = firebaseRef
+                        .child("train")
+                        .child(idUser)
+                        .child(MonthYearSelected);
+
+                trainRef.child(train.getKey()).removeValue();
+                adapterTrain.notifyItemRemoved(position);
+                Toast.makeText(TrainingActivity.this,
+                        "Treino excluido!",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Manter treino
+                Toast.makeText(TrainingActivity.this,
+                        "O treino não foi excluido!",
+                        Toast.LENGTH_SHORT).show();
+                adapterTrain.notifyDataSetChanged();
+            }
+        });
+
+        AlertDialog alert = alertDialog.create();
+        alert.show();
+
     }
 
     @Override
