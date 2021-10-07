@@ -2,25 +2,26 @@ package com.academia.crosstrainer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.academia.crosstrainer.activity.StopwatchActivity;
+import com.academia.crosstrainer.adapter.AdapterTrain;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.helper.Base64Custom;
+import com.academia.crosstrainer.model.Train;
 import com.academia.crosstrainer.model.UserApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -28,12 +29,25 @@ import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TrainingActivity extends AppCompatActivity {
 
     private MaterialCalendarView calendarView;
    // private TextView txtWelcome;
     private FirebaseAuth auth = ConfiguracaoFirebase.FirebaseAutenticacao();
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFireBaseDatabase();
+    private DatabaseReference userRef;
+    private ValueEventListener valueEventListenerUser;
+    private ValueEventListener valueEventListenerTrain;
+
+    private RecyclerView recyclerView;
+    private AdapterTrain adapterTrain;
+    private List<Train> trainList = new ArrayList<>();
+    private DatabaseReference trainRef;
+    private String MonthYearSelected;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +60,30 @@ public class TrainingActivity extends AppCompatActivity {
         //Variáveis
        // txtWelcome = findViewById(R.id.txtWelcome);
         calendarView = findViewById(R.id.calendarView);
+        recyclerView = findViewById(R.id.recyclerTraining);
         configCalendarView();
-        recoverData();
+        //Configurar Adapter
+        adapterTrain = new AdapterTrain(trainList, this);
+        //Configurar RecyclerView
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapterTrain);
     }
 
     private void configCalendarView(){
         CharSequence months[] = {"Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"};
         calendarView.setTitleMonths(months);
 
+        CalendarDay dateActual = calendarView.getCurrentDate();
+        MonthYearSelected = getMonthYearSelected(dateActual);
+
         calendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-
+                MonthYearSelected = getMonthYearSelected(date);
+                trainRef.removeEventListener(valueEventListenerTrain);
+                recoverTrain();
             }
         });
 
@@ -80,12 +106,39 @@ public class TrainingActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void recoverTrain(){
+        String mailUser = auth.getCurrentUser().getEmail();
+        String idUser = Base64Custom.codeBase64(mailUser);
+        trainRef = firebaseRef
+                .child("train")
+                .child(idUser)
+                .child(MonthYearSelected);
+
+        valueEventListenerTrain = trainRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                trainList.clear();
+
+                for(DataSnapshot dados:snapshot.getChildren()){
+                    Train train = dados.getValue(Train.class);
+                    trainList.add(train);
+                }
+                adapterTrain.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
     public void recoverData(){
         String mailUser = auth.getCurrentUser().getEmail();
         String idUser = Base64Custom.codeBase64(mailUser);
-        DatabaseReference userRef = firebaseRef.child("userApp").child(idUser);
+        userRef = firebaseRef.child("userApp").child(idUser);
 
-        userRef.addValueEventListener(new ValueEventListener() {
+        valueEventListenerUser = userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 UserApp  userApp =  snapshot.getValue(UserApp.class);
@@ -119,4 +172,26 @@ public class TrainingActivity extends AppCompatActivity {
         finish();
     }
 
+    private String getMonthYearSelected(CalendarDay date){
+        int month = date.getMonth() + 1;
+        if(month <= 9){
+            return String.valueOf("0"+month +""+ date.getYear());
+        }else{
+            return String.valueOf(month +""+ date.getYear());
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recoverData();
+        recoverTrain();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        userRef.removeEventListener(valueEventListenerUser);
+        trainRef.removeEventListener(valueEventListenerTrain);
+    }
 }

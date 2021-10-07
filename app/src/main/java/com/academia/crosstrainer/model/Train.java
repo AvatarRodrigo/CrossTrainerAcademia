@@ -38,8 +38,12 @@ public class Train {
     }
 
     public String getTime() {
-        String[] times = time.split(":");
-        return times[0] +"'"+times[1]+"\""+times[2];
+       if(time.contains(":")){
+           String[] times = time.split(":");
+           return times[0] + "'" + times[1] + "\"" + times[2];
+       }else {
+           return time;
+       }
     }
 
     public void setTime(String time) {
@@ -71,22 +75,26 @@ public class Train {
     }
 
     public String getMedal() {
-        String[] times = time.split(":");
-        int min = Integer.parseInt(times[0]);
-        int seg = Integer.parseInt(times[1]);
-        int cent = Integer.parseInt(times[2]);
-        if(min < 2 || min == 2 && seg < 9){
-            medal = "Platina";
-        }else if(min == 2 && seg < 16){
-            medal = "Ouro";
-        }else if(min == 2 && seg < 26){
-            medal = "Prata";
-        }else if(min == 2 && seg < 51){
-            medal = "Bronze";
-        }else {
-            medal = "Shadow";
+        if(time.contains(":")) {
+            String[] times = time.split(":");
+            int min = Integer.parseInt(times[0]);
+            int seg = Integer.parseInt(times[1]);
+            int cent = Integer.parseInt(times[2]);
+            if (min < 2 || min == 2 && seg < 9) {
+                medal = "Platina";
+            } else if (min == 2 && seg < 16) {
+                medal = "Ouro";
+            } else if (min == 2 && seg < 26) {
+                medal = "Prata";
+            } else if (min == 2 && seg < 51) {
+                medal = "Bronze";
+            } else {
+                medal = "Shadow";
+            }
+            return medal;
+        }else{
+            return medal;
         }
-        return medal;
     }
 
     public void save(String mail, String month){

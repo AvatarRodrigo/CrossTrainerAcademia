@@ -10,14 +10,56 @@
     tools:context=".TrainingActivity">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearHeader"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/sombra"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Meus treinos"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:theme="@style/Theme.CrossTrainer.AppBarOverlay" />
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:theme="@style/Theme.CrossTrainer.AppBarOverlay"
+                app:mcv_tileSize="50dp"
+                fab:mcv_selectionColor="#00F"
+                fab:mcv_showOtherDates="all"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTraining"
+            android:layout_width="match_parent"
+            android:layout_height="627dp"
+            android:theme="@style/Theme.CrossTrainer" />
+
+
+    </LinearLayout>
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/menu"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
-        android:layout_gravity="end|bottom"
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
@@ -73,50 +115,5 @@
             fab:fab_label="Gladiadores"
             fab:fab_size="normal" />
     </com.github.clans.fab.FloatingActionMenu>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/linearHeader"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@color/sombra"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Meus treinos"
-                android:textAlignment="center"
-                android:textSize="34sp"
-                android:textStyle="bold"
-                android:theme="@style/Theme.CrossTrainer.AppBarOverlay" />
-
-            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-                android:id="@+id/calendarView"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="4dp"
-                android:theme="@style/Theme.CrossTrainer.AppBarOverlay"
-                app:mcv_tileSize="50dp"
-                fab:mcv_selectionColor="#00F"
-                fab:mcv_showOtherDates="all"/>
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerTraining"
-            android:layout_width="match_parent"
-            android:layout_height="627dp"
-            android:theme="@style/Theme.CrossTrainer" />
-
-
-
-    </LinearLayout>
 
 </FrameLayout>
