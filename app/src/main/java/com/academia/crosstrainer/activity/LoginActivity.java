@@ -10,10 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.academia.crosstrainer.ActionActivity;
 import com.academia.crosstrainer.MainActivity;
 import com.academia.crosstrainer.R;
-import com.academia.crosstrainer.TrainingActivity;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.model.UserApp;
 import com.google.android.gms.tasks.OnCompleteListener;

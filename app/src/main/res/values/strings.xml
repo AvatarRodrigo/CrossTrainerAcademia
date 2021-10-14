@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">Cross Trainer</string>
     <string name="trainer">Trainer Academia</string>
     <string name="txt_intro1">Um aplicativo exclusivo para alunos da Trainer Academia</string>
@@ -40,6 +40,7 @@
     <string name="finish">Finalizar</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Salvar</string>
+    <string name="back">Voltar</string>
     <string name="carregando">carregando</string>
     <string-array name="intencidades">
         <item>100%</item>
@@ -62,6 +63,11 @@
         <item>Maximus</item>
         <item>Invictus</item>
         <item>Spartacus</item>
+    </string-array>
+    <string-array name="sex">
+        <item></item>
+        <item>Masculino</item>
+        <item>Feminino</item>
     </string-array>
 
 </resources>

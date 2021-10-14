@@ -7,6 +7,7 @@ import com.google.firebase.database.Exclude;
 public class UserApp {
     private String idUser;
     private String nome;
+    private String sex;
     private String email;
     private String celular;
     private String senha;
@@ -26,6 +27,10 @@ public class UserApp {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getSex() { return sex; }
+
+    public void setSex(String sex) { this.sex = sex; }
 
     public String getEmail() {
         return email;

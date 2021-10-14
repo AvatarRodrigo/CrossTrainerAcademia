@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.academia.crosstrainer.R;
@@ -27,6 +29,7 @@ public class CadastroActivity extends AppCompatActivity {
     private Button botaoCadastrar;
     private FirebaseAuth autenticacao;
     private UserApp userApp;
+    private Spinner campoSexo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class CadastroActivity extends AppCompatActivity {
         campoPassword  = findViewById(R.id.txtSenha);
         campoPassword2 = findViewById(R.id.txtSenha2);
         botaoCadastrar = findViewById(R.id.btnCadastrar);
+        campoSexo = (Spinner) findViewById(R.id.cbxSexo);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.sex, R.layout.spinner_item_cadastro);
+        campoSexo.setAdapter(adapter);
 
         botaoCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,11 +54,16 @@ public class CadastroActivity extends AppCompatActivity {
                 String phone = campoPhone.getText().toString();
                 String password = campoPassword.getText().toString();
                 String password2 = campoPassword2.getText().toString();
+                String sexo = campoSexo.getSelectedItem().toString();
 
                 //Validação
                 if(name.isEmpty()){
                     Toast.makeText(CadastroActivity.this,
                             "Preencha o nome!",
+                            Toast.LENGTH_SHORT).show();
+                }else if(sexo.isEmpty()){
+                    Toast.makeText(CadastroActivity.this,
+                            "Escolha o sexo!",
                             Toast.LENGTH_SHORT).show();
                 }else if(email.isEmpty()){
                     Toast.makeText(CadastroActivity.this,
@@ -73,6 +84,7 @@ public class CadastroActivity extends AppCompatActivity {
                 }else{
                     userApp = new UserApp();
                     userApp.setNome(name);
+                    userApp.setSex(sexo);
                     userApp.setEmail(email);
                     userApp.setCelular(phone);
                     userApp.setSenha(password);

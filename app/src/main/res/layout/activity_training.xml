@@ -95,15 +95,15 @@
         fab:menu_shadowYOffset="3dp"
         fab:menu_showShadow="true">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/menu_deuses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="openScreenDeusesGregos"
-            android:src="@drawable/btn_deus_grego"
-            fab:fab_colorNormal="@color/black"
-            fab:fab_label="Deuses gregos"
-            fab:fab_size="normal" />
+        <!--com.github.clans.fab.FloatingActionButton
+        android:id="@+id/menu_deuses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openScreenDeusesGregos"
+        android:src="@drawable/btn_deus_grego"
+        fab:fab_colorNormal="@color/black"
+        fab:fab_label="Deuses gregos"
+        fab:fab_size="normal" /-->
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_gladiadores"
@@ -117,3 +117,5 @@
     </com.github.clans.fab.FloatingActionMenu>
 
 </FrameLayout>
+
+

@@ -3,5 +3,5 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_person_24"
-        android:title="@string/finalizar" />
+        android:title="@string/title_home" />
 </menu>

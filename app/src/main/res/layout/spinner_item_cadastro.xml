@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableLeft="@drawable/ic_sex_24"
+    android:drawablePadding="5dp"
+    android:hint="Sexo"
+    android:textColor="@color/design_default_color_secondary"
+    android:textColorHighlight="@color/design_default_color_secondary"
+    android:textColorHint="@color/design_default_color_secondary"
+    android:textColorLink="@color/design_default_color_secondary"
+    android:textSize="20sp" />

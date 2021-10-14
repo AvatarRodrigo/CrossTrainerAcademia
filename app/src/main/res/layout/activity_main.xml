@@ -44,7 +44,7 @@
         android:cropToPadding="false"
         android:onClick="btnAction"
         android:padding="0dp"
-        android:src="@drawable/ic_add_32"
+        android:src="@drawable/ic_sports_24"
         app:backgroundTint="@color/logo_escuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -40,7 +40,7 @@ import java.util.List;
 public class TrainingActivity extends AppCompatActivity {
 
     private MaterialCalendarView calendarView;
-   // private TextView txtWelcome;
+    //private TextView txtWelcome;
     private FirebaseAuth auth = ConfiguracaoFirebase.FirebaseAutenticacao();
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFireBaseDatabase();
     private DatabaseReference userRef;
