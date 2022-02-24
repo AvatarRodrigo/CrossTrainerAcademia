@@ -29,6 +29,8 @@
     <string name="finalizar">Finalizar treino</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
+    <string name="title_account">Conta</string>
+    <string name="updateUser">Meu Perfil</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="txt_desafiante">Acredite, vale a pena lutar para ser melhor.</string>
@@ -42,6 +44,7 @@
     <string name="save">Salvar</string>
     <string name="back">Voltar</string>
     <string name="carregando">carregando</string>
+
     <string-array name="intencidades">
         <item>100%</item>
         <item>80%</item>

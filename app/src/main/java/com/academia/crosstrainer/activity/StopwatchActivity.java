@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,7 +21,6 @@ import com.academia.crosstrainer.adapter.AdapterTrain;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
 import com.academia.crosstrainer.helper.Base64Custom;
 import com.academia.crosstrainer.model.ChronometerTraining;
-import com.academia.crosstrainer.model.Circuit;
 import com.academia.crosstrainer.model.Train;
 import com.academia.crosstrainer.model.UserApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,10 +52,8 @@ public class StopwatchActivity extends AppCompatActivity {
     private FirebaseAuth auth = ConfiguracaoFirebase.FirebaseAutenticacao();
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFireBaseDatabase();
     private ListView listView;
-    private RecyclerView recyclerView;
-    private AdapterTrain adapterTrain;
     private List<String> trainList = new ArrayList<>();
-    private Train train;
+
     private DatabaseReference trainRef;
     private ValueEventListener valueEventListenerTrain;
     private String exercises_sex = "";

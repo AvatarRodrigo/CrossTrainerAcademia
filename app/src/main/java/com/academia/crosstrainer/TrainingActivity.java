@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.academia.crosstrainer.activity.AccountActivity;
 import com.academia.crosstrainer.activity.StopwatchActivity;
 import com.academia.crosstrainer.adapter.AdapterTrain;
 import com.academia.crosstrainer.config.ConfiguracaoFirebase;
@@ -203,6 +204,8 @@ public class TrainingActivity extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
+
+
 
     private String getMonthYearSelected(CalendarDay date){
         int month = date.getMonth() + 1;
